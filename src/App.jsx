@@ -1,11 +1,9 @@
-import { Fragment, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Fragment } from "react";
+import useGetImagesFromApi from "./hooks/useGetImagesFromApi";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const { images } = useGetImagesFromApi({ pageNumber: 1, limit: 5 });
+  console.log(images);
   return (
     <Fragment>
       <div>
