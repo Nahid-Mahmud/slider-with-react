@@ -9,6 +9,7 @@ export default function useGetImagesFromApi({ pageNumber = 1, limit = 5 }) {
 
   useEffect(() => {
     async function fetchImages() {
+      setError(null);
       setLoading(true);
       try {
         const response = await fetch(url);
@@ -16,6 +17,7 @@ export default function useGetImagesFromApi({ pageNumber = 1, limit = 5 }) {
         setImages(data);
       } catch (error) {
         setError(error);
+        console.log(error.message);
       } finally {
         setLoading(false);
       }
